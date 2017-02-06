@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    tools:context="com.adev.swiftcontributor.activity.DetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/user_txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="User"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/user_img_thumbnail"
+                android:layout_width="120dip"
+                android:layout_height="120dip"
+                android:src="@drawable/ic_user_circle" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/user_txt_contribution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_background"
+                android:drawableBottom="@drawable/ic_group"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/user_txt_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_background"
+                android:drawableBottom="@drawable/ic_group"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/user_txt_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_background"
+                android:drawableBottom="@drawable/ic_group"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/user_txt_localisation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_gps"
+            android:drawableStart="@drawable/ic_gps"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/user_txt_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_company"
+            android:drawableStart="@drawable/ic_company"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/user_txt_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_bio"
+            android:drawableStart="@drawable/ic_bio"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/user_txt_blog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_blog"
+            android:drawableStart="@drawable/ic_blog"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/blog"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/user_txt_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_open_browser"
+            android:drawableStart="@drawable/ic_open_browser"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/html_browser"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

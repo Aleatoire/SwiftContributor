@@ -9,6 +9,7 @@ import com.adev.swiftcontributor.R;
 import com.adev.swiftcontributor.UI.UserViewHolder;
 import com.adev.swiftcontributor.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,8 +20,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     private List<User> mUsers;
 
-    public UserAdapter(List<User> data) {
-        this.mUsers = data;
+
+    public UserAdapter(List<User> users) {
+        this.mUsers = users;
     }
 
     @Override

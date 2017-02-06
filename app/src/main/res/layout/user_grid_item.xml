@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_person_black_48dp" />
+            android:src="@drawable/ic_user" />
 
         <TextView
             android:id="@+id/txt_login_user"

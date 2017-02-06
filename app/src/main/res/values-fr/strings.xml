@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- User Page -->
+    <string name="html_browser">Afficher version web</string>
+    <string name="blog">Site web</string>
+    <string name="send_mail">Envoyer e-mail …</string>
+
+    <!-- Plurals -->
+    <plurals name="format_follower">
+        <item quantity="one">%d abonné
+        </item>
+        <item quantity="other">
+            %d abonnés
+        </item>
+    </plurals>
+    <plurals name="format_contribution">
+        <item quantity="one">
+            %d contribution
+        </item>
+        <item quantity="other">
+            %d contributions
+        </item>
+    </plurals>
+    <plurals name="format_following">
+        <item quantity="one">
+            %d abonnement
+        </item>
+        <item quantity="other">
+            %d abonnements
+        </item>
+    </plurals>
+
+</resources>

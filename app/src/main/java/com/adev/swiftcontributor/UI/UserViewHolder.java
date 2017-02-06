@@ -32,6 +32,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
                 Intent intent = new Intent(thumbnailImgView.getContext(), DetailsActivity.class);
                 intent.putExtra("login", mUser.getLogin());
+                intent.putExtra("contributions", mUser.getContributions());
                 thumbnailImgView.getContext().startActivity(intent);
             }
         });
@@ -47,8 +48,8 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         Picasso.with(thumbnailImgView.getContext())
                 .load(user.getAvatar_url())
                 .centerCrop()
-                .placeholder(R.drawable.ic_person_black_48dp)
-                .error(android.R.color.holo_red_dark)
+                .placeholder(R.drawable.ic_user)
+                .error(R.drawable.ic_user)
                 .noFade()
                 .fit()
                 .into(thumbnailImgView);

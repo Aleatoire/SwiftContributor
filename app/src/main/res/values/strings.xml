@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">SwiftContributor</string>
+    <string name="app_name" translatable="false">Swift Contributors</string>
+
+    <!-- User Page -->
+    <string name="html_browser">View web version</string>
+    <string name="blog">Website</string>
+    <string name="send_mail">Send mail …</string>
+
+    <!-- Plurals -->
+    <plurals name="format_follower">
+        <item quantity="one">%d follower
+        </item>
+        <item quantity="other">
+            %d followers
+        </item>
+    </plurals>
+    <plurals name="format_contribution">
+        <item quantity="one">
+            %d contribution
+        </item>
+        <item quantity="other">
+            %d contributions
+        </item>
+    </plurals>
+    <plurals name="format_following">
+        <item quantity="one">
+            %d following
+        </item>
+        <item quantity="other">
+            %d followings
+        </item>
+    </plurals>
+
 </resources>
