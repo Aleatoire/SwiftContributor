@@ -1,12 +1,8 @@
 package com.adev.swiftcontributor;
 
-        import android.app.Application;
+import android.app.Application;
 
-        import io.realm.Realm;
-
-/**
- * Created by yakko on 05/02/2017.
- */
+import io.realm.Realm;
 
 public class SwiftContributor extends Application {
 

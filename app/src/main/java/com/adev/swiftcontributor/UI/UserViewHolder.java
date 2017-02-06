@@ -11,10 +11,6 @@ import com.adev.swiftcontributor.R;
 import com.adev.swiftcontributor.model.User;
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by devandroid on 03/02/2017.
- */
-
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
     private TextView loginTxtView;

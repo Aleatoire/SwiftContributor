@@ -1,12 +1,7 @@
 package com.adev.swiftcontributor.model;
 
 import io.realm.RealmObject;
-import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
-
-/**
- * Created by devandroid on 03/02/2017.
- */
 
 public class User extends RealmObject {
 

@@ -19,15 +19,12 @@ import com.adev.swiftcontributor.service.APIService;
 import com.adev.swiftcontributor.service.UserService;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import retrofit2.Call;
 import retrofit2.Callback;

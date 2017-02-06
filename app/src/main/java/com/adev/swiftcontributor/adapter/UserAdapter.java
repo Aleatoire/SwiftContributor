@@ -9,12 +9,8 @@ import com.adev.swiftcontributor.R;
 import com.adev.swiftcontributor.UI.UserViewHolder;
 import com.adev.swiftcontributor.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by devandroid on 03/02/2017.
- */
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
