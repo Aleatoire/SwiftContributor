@@ -17,23 +17,14 @@ public class User extends RealmObject {
     private String avatar_url;
     private String html_url;
 
-    @Ignore
     private String name;
-    @Ignore
     private String company;
-    @Ignore
     private String blog;
-    @Ignore
     private int contributions;
-    @Ignore
     private String location;
-    @Ignore
     private String email;
-    @Ignore
     private String bio;
-    @Ignore
     private int followers;
-    @Ignore
     private int following;
 
     //region Getter Setter
