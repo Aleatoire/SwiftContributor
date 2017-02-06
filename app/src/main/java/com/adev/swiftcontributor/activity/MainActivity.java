@@ -19,6 +19,8 @@ import com.adev.swiftcontributor.service.UserService;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import retrofit2.Call;
@@ -28,30 +30,32 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     public static final String TAG = "MainActivity";
 
-    private final UserService service = APIService.createService(UserService.class);
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.placeholder)
+    LinearLayout placeholder;
+    @BindView(R.id.swipe_refresh_users)
+    SwipeRefreshLayout swipeRefreshUsers;
+    @BindView(R.id.loader_contributor)
+    LinearLayout loaderContributor;
+
     private Realm realm;
-    private RecyclerView mRecyclerUser;
-    private LinearLayout mLoader;
-    private LinearLayout mPlaceholder;
+    private final UserService service = APIService.createService(UserService.class);
     private UserAdapter mAdapterUser;
-    SwipeRefreshLayout swipeRefreshLayout;
+
 
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mRecyclerUser = (RecyclerView) findViewById(R.id.recyclerView);
-        mLoader = (LinearLayout) findViewById(R.id.loader_contributor);
-        mPlaceholder = (LinearLayout) findViewById(R.id.placeholder);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_users);
-
-        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshUsers.setOnRefreshListener(this);
         GridLayoutManager glm = new GridLayoutManager(this, 2);
         glm.setInitialPrefetchItemCount(8);
-        mRecyclerUser.setLayoutManager(glm);
-        mRecyclerUser.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutManager(glm);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         realm = Realm.getDefaultInstance();
 
@@ -106,21 +110,21 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     private void setPlaceholder(boolean isVisible) {
         if (isVisible) {
-            mPlaceholder.setVisibility(View.VISIBLE);
+            placeholder.setVisibility(View.VISIBLE);
         } else {
-            mPlaceholder.setVisibility(View.GONE);
+            placeholder.setVisibility(View.GONE);
         }
-        mLoader.setVisibility(View.GONE);
-        swipeRefreshLayout.setRefreshing(false);
+        loaderContributor.setVisibility(View.GONE);
+        swipeRefreshUsers.setRefreshing(false);
     }
 
     private void setupRecycler(List<User> users) {
         mAdapterUser = new UserAdapter(users);
-        mRecyclerUser.setAdapter(mAdapterUser);
+        recyclerView.setAdapter(mAdapterUser);
         mAdapterUser.notifyDataSetChanged();
-        mRecyclerUser.invalidate();
-        mLoader.setVisibility(View.GONE);
-        swipeRefreshLayout.setRefreshing(false);
+        recyclerView.invalidate();
+        loaderContributor.setVisibility(View.GONE);
+        swipeRefreshUsers.setRefreshing(false);
     }
 
     @Override

@@ -20,7 +20,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     private List<User> mUsers;
 
-
     public UserAdapter(List<User> users) {
         this.mUsers = users;
     }

@@ -9,6 +9,12 @@ import android.net.ConnectivityManager;
 
 public class Utils {
 
+    /**
+     * Get the online status
+     *
+     * @param context Context of the current Activity/Fragment
+     * @return the state of the connection (active or not)
+     */
     public static boolean isOnline(Context context) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

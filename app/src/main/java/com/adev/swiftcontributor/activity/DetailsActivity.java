@@ -62,11 +62,12 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.swipe_refresh_user)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    private Realm realm;
     private final UserService service = APIService.createService(UserService.class);
+    private Realm realm;
+    private User mUser;
+
     private String loginUser;
     private int userContribution;
-    private User mUser;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -112,7 +113,6 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             setUpUser(realm.where(User.class).equalTo("login", loginUser).findFirst());
         }
-        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void setUpUser(User user) {
@@ -172,11 +172,13 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onSuccess() {
                         loaderUser.setVisibility(View.GONE);
+                        swipeRefreshLayout.setRefreshing(false);
                     }
 
                     @Override
                     public void onError() {
                         loaderUser.setVisibility(View.GONE);
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 });
 
