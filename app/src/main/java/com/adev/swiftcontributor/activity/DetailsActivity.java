@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class DetailsActivity extends AppCompatActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
     public static final String TAG = "DetailsActivity";
 
     @BindView(R.id.user_txt_name)
@@ -58,6 +59,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     FloatingActionButton sendMailFab;
     @BindView(R.id.loader_user)
     LinearLayout loaderUser;
+    @BindView(R.id.swipe_refresh_user)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private Realm realm;
     private final UserService service = APIService.createService(UserService.class);
@@ -74,6 +77,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         realm = Realm.getDefaultInstance();
 
         loaderUser.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setOnRefreshListener(this);
 
         if (getIntent() != null) {
             this.loginUser = getIntent().getStringExtra("login");
@@ -108,6 +112,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             setUpUser(realm.where(User.class).equalTo("login", loginUser).findFirst());
         }
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void setUpUser(User user) {
@@ -203,5 +208,10 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 sendMail();
                 break;
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        fetchUser();
     }
 }

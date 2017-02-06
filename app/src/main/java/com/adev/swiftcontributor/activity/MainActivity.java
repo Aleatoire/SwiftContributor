@@ -1,6 +1,7 @@
 package com.adev.swiftcontributor.activity;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -24,14 +25,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     public static final String TAG = "MainActivity";
 
     private final UserService service = APIService.createService(UserService.class);
     private Realm realm;
     private RecyclerView mRecyclerUser;
     private LinearLayout mLoader;
+    private LinearLayout mPlaceholder;
     private UserAdapter mAdapterUser;
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -41,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerUser = (RecyclerView) findViewById(R.id.recyclerView);
         mLoader = (LinearLayout) findViewById(R.id.loader_contributor);
+        mPlaceholder = (LinearLayout) findViewById(R.id.placeholder);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_users);
 
+        swipeRefreshLayout.setOnRefreshListener(this);
         GridLayoutManager glm = new GridLayoutManager(this, 2);
         glm.setInitialPrefetchItemCount(8);
         mRecyclerUser.setLayoutManager(glm);
@@ -79,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     realm.commitTransaction();
 
                     setupRecycler(realmUsers);
-                    mLoader.setVisibility(View.GONE);
-
                 }
             }
 
@@ -94,8 +98,20 @@ public class MainActivity extends AppCompatActivity {
     private void getUsersFromDB() {
         RealmResults<User> users = realm.where(User.class).findAll();
 
-        setupRecycler(users);
+        if (users.isEmpty())
+            setPlaceholder(true);
+        else
+            setupRecycler(users);
+    }
+
+    private void setPlaceholder(boolean isVisible) {
+        if (isVisible) {
+            mPlaceholder.setVisibility(View.VISIBLE);
+        } else {
+            mPlaceholder.setVisibility(View.GONE);
+        }
         mLoader.setVisibility(View.GONE);
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void setupRecycler(List<User> users) {
@@ -103,5 +119,12 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerUser.setAdapter(mAdapterUser);
         mAdapterUser.notifyDataSetChanged();
         mRecyclerUser.invalidate();
+        mLoader.setVisibility(View.GONE);
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onRefresh() {
+        getUser();
     }
 }

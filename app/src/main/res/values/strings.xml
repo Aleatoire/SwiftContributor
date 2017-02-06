@@ -6,6 +6,10 @@
     <string name="blog">Website</string>
     <string name="send_mail">Send mail …</string>
 
+    <!-- Placeholder -->
+    <string name="placeholder_no_connection">No internet, check your connection please!</string>
+
+
     <!-- Plurals -->
     <plurals name="format_follower">
         <item quantity="one">%d follower

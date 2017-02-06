@@ -5,6 +5,10 @@
     <string name="blog">Site web</string>
     <string name="send_mail">Envoyer e-mail …</string>
 
+    <!-- Placeholder -->
+    <string name="placeholder_no_connection">Pas d\'accès internet, vérifier votre connection !</string>
+
+
     <!-- Plurals -->
     <plurals name="format_follower">
         <item quantity="one">%d abonné
