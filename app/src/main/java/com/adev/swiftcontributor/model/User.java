@@ -16,21 +16,25 @@ public class User extends RealmObject {
     private String login;
     private String avatar_url;
     private String html_url;
+
     @Ignore
-    private String type;
-    @Ignore
-    private boolean site_admin;
     private String name;
+    @Ignore
     private String company;
+    @Ignore
     private String blog;
+    @Ignore
     private int contributions;
+    @Ignore
     private String location;
+    @Ignore
     private String email;
     @Ignore
     private String bio;
+    @Ignore
     private int followers;
+    @Ignore
     private int following;
-    private String updated_at;
 
     //region Getter Setter
     public String getLogin() {
@@ -63,22 +67,6 @@ public class User extends RealmObject {
 
     public void setHtml_url(String html_url) {
         this.html_url = html_url;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public boolean isSite_admin() {
-        return site_admin;
-    }
-
-    public void setSite_admin(boolean site_admin) {
-        this.site_admin = site_admin;
     }
 
     public String getName() {
@@ -153,59 +141,5 @@ public class User extends RealmObject {
         this.following = following;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
-    }
-
-    public void updateUser(User user) {
-
-        if (!getLogin().equals(user.getLogin()))
-            return;
-
-        if (!getEmail().equals(user.getEmail())) {
-            this.email = user.getEmail();
-        }
-        if (!getHtml_url().equals(user.getHtml_url())) {
-            this.html_url = user.getHtml_url();
-        }
-        if (!getBlog().equals(user.getBlog())) {
-            this.blog = user.getBlog();
-        }
-        if (!getAvatar_url().equals(user.getAvatar_url())) {
-            this.avatar_url = user.getAvatar_url();
-        }
-        if (!getBio().equals(user.getBio())) {
-            this.bio = user.getBio();
-        }
-        if (!getCompany().equals(user.getCompany())) {
-            this.company = user.getCompany();
-        }
-        if (!getLocation().equals(user.getLocation())) {
-            this.location = user.getLocation();
-        }
-        if (!getName().equals(user.getName())) {
-            this.name = user.getName();
-        }
-        if (!getType().equals(user.getType())) {
-            this.type = user.getType();
-        }
-        if (!getUpdated_at().equals(user.getUpdated_at())) {
-            this.updated_at = user.getUpdated_at();
-        }
-        if(getContributions() != user.getContributions()){
-            this.contributions = user.getContributions();
-        }
-        if(getFollowers() != user.getFollowers()){
-            this.followers = user.getFollowers();
-        }
-        if(getFollowing() != user.getFollowing()){
-            this.following = user.getFollowing();
-        }
-
-    }
     //endregion
 }
